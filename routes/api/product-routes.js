@@ -54,15 +54,6 @@ router.get("/:id", (req, res) => {
 
 // Create a new product
 router.post("/", (req, res) => {
-  /* req.body should look like this...
-    {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
-    }
-  */
-  // Create a new product using Sequelize's create method
   Product.create(req.body)
     .then((product) => {
       if (req.body.tagIds.length) {
