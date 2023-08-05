@@ -7,3 +7,4 @@ https://sequelize.org/docs/v6/core-concepts/model-basics/
 https://sequelize.org/docs/v6/core-concepts/validations-and-constraints/
 https://expressjs.com/en/guide/routing.html
 https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#simple-select-queries
+https://sequelize.org/docs/v6/core-concepts/model-querying-finders/
