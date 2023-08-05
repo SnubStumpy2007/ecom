@@ -1,19 +1,29 @@
+// Import necessarky dependencies
 const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection.js');  // Import Sequelize connection
 
-const sequelize = require('../config/connection.js');
-
+// Define the Categroy model class that extends the Sequelize Model Class
 class Category extends Model {}
 
-Category.init(  // initallize the model's attributes (Columns in the database)
+Category.init(  // initallize the model's attributes (Columns in the database).  This represents a single table in my database.
   {
-    // define columns
+    id: {                      // The name of the comlumn 
+      type:DataTypes.INTEGER,  // Data type for the column (INTEGER)
+      allowNull: false,        // Disallow null values for this column
+      primaryKey: true,        // Indicates that this column is the primary key
+      autoIncrement: true      // Auto-increment the value for each new record
+    },
+      category_name: {
+        type: DataTypes.STRING, // Data tykpe for the column (STRING)
+        allowNull: false        // Disallow null values for this column
+      }
   },
   {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'category',
+    sequelize,                  // The Sequelize instance to use for this model
+    timestamps: false,          // Disable automatic timestamps (createdAt and updatedAt columns)
+    freezeTableName: true,      // Prevent Sequelize from pluralizing the table name
+    underscored: true,          // Use snake_case for column names (e.g., category_name instead of categoryName)
+    modelName: 'category',      // Use 'category' as the model name (Name of the table)
   }
 );
 
