@@ -7,9 +7,9 @@ class Category extends Model {}
 
 Category.init(  // initallize the model's attributes (Columns in the database).  This represents a single table in my database.
   {
-    id: {                      // The name of the comlumn 
+    id: {                      // The name of the comlumn (Validations and constraints below)
       type:DataTypes.INTEGER,  // Data type for the column (INTEGER)
-      allowNull: false,        // Disallow null values for this column
+      allowNull: false,        // Disallow null values for this column (By default null is allowed so it must be explicitly prohibited)
       primaryKey: true,        // Indicates that this column is the primary key
       autoIncrement: true      // Auto-increment the value for each new record
     },
