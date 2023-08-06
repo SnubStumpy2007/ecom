@@ -9,14 +9,14 @@
   "test": {
     "username": "root",
     "password": "zelda12345",
-    "database": "database_test",
+    "database": "ecommerse_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "zelda12345",
-    "database": "database_production",
+    "database": "ecommerse_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
