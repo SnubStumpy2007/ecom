@@ -8,3 +8,4 @@ https://sequelize.org/docs/v6/core-concepts/validations-and-constraints/
 https://expressjs.com/en/guide/routing.html
 https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#simple-select-queries
 https://sequelize.org/docs/v6/core-concepts/model-querying-finders/
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map

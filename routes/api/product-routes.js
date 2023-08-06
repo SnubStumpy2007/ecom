@@ -83,23 +83,55 @@ router.put("/:id", (req, res) => {
       id: req.params.id, // Use the provided ID parameter to identify the product to update
     },
   })
-    .then((product) => {
-      if (req.body.tagIds && req.body.tagIds.length) {
-        // Update product tags in ProductTag model
-        ProductTag.findAll({
-          where: { product_id: req.params.id },
-        }).then((productTags) => {
-          // Create filtered list of new tag_ids and remove tags if necessary
-          // ... (code continues, updating and removing tags)
+  .then((product) => {
+    if (req.body.tagIds && req.body.tagIds.length) {
+      // Update product tags in ProductTag model
+      ProductTag.findAll({
+        where: { product_id: req.params.id },
+      }).then((productTags) => {
+        // Create filtered list of new tag_ids and remove tags if necessary
+        const existingTagIds = productTags.map((tag) => tag.tag_id);
+        const newTagIds = req.body.tagIds.filter((tagId) => !existingTagIds.includes(tagId));
+  
+        // Array to hold new ProductTag associations
+        const newProductTags = [];
+  
+        // Add new tag associations to newProductTags array
+        newTagIds.forEach((tagId) => {
+          newProductTags.push({
+            product_id: product.id,
+            tag_id: tagId,
+          });
         });
-      }
-
-      return res.json(product); // Send the updated product data as JSON response
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json(err); // Handle errors with a 400 response
-    });
+  
+        // Remove unwanted tags from existing productTags
+        const tagsToRemove = productTags.filter((tag) => !req.body.tagIds.includes(tag.tag_id));
+  
+        // Update existing productTags
+        ProductTag.destroy({
+          where: { id: tagsToRemove.map((tag) => tag.id) },
+        }).then(() => {
+          if (newProductTags.length) {
+            ProductTag.bulkCreate(newProductTags).then(() => {
+              // Tag associations have been updated successfully
+              res.json(product);
+            });
+          } else {
+            // No new tags to associate
+            res.json(product);
+          }
+        });
+      });
+    } else {
+      // No new tags provided, simply respond with the product data
+      res.json(product);
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(400).json(err);
+  });
+  
 });
 
 // Delete a product by ID
