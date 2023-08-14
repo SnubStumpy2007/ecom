@@ -2,21 +2,21 @@
   "development": {
     "username": "root",
     "password": "zelda12345",
-    "database": "ecommerse_db",
+    "database": "ecommerce_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "zelda12345",
-    "database": "ecommerse_db",
+    "database": "ecommerce_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "zelda12345",
-    "database": "ecommerse_db",
+    "database": "eecommerce_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
