@@ -56,7 +56,7 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   Product.create(req.body)
     .then((product) => {
-      if (req.body.tagIds.length) {
+      if (req.body.tagIds) {
         // If there are product tags, create pairings in ProductTag model
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {

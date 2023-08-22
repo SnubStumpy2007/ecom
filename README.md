@@ -34,7 +34,7 @@ This project is the back end for an e-commerce website. It utilizes Express.js A
 
 ## Walkthrough Video
 
-[Watch the Walkthrough Video](link_to_your_walkthrough_video)
+[Watch the Walkthrough Video](https://youtu.be/1Qh3gNempjg)
 
 The walkthrough video demonstrates the following:
 
