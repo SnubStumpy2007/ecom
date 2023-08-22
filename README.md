@@ -34,7 +34,8 @@ This project is the back end for an e-commerce website. It utilizes Express.js A
 
 ## Walkthrough Video
 
-[Watch the Walkthrough Video](https://youtu.be/1Qh3gNempjg)
+[Watch the Walkthrough Video](https://youtu.be/5OEoZI1Ee3c)(Backend, seeding database, starting server)
+[Watch the Walkthrough Video](https://youtu.be/1Qh3gNempjg)(Insomnia)
 
 The walkthrough video demonstrates the following:
 
